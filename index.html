@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFO-CORE LAB | 情報Ⅰ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo" onclick="location.reload()">INFO-CORE<span> LAB</span></div>
+        <nav>
+            <div id="admin-panel" class="hidden">
+                <label class="csv-upload-btn">
+                    CSV更新 <input type="file" id="csv-file" accept=".csv">
+                </label>
+            </div>
+            <button class="nav-btn" onclick="showPage('home')">ホーム</button>
+            <button class="nav-btn" onclick="unlockAdmin()">管理者</button>
+        </nav>
+    </header>
+
+    
+
+    <main id="main-content">
+        <section id="home-section" class="content-section">
+            <div class="hero">
+                <h1 class="main-title">Digital Learning Lab</h1>
+                <p id="data-status">学習データを読み込んでください</p>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-card" onclick="showSection('word')">
+                    <div class="card-visual">📖</div>
+                    <div class="card-info"><h3>単語学習</h3><p>4択クイズ形式</p></div>
+                </div>
+                <div class="menu-card" onclick="showSection('test')">
+                    <div class="card-visual">✍️</div>
+                    <div class="card-info"><h3>理解度確認</h3><p>記述テスト形式</p></div>
+                </div>
+                <div style="padding: 20px; border: 2px solid #4285f4; border-radius: 10px; text-align: center;">
+                    <h2>情報Ⅰ 共通テスト対策</h2>
+                    <p>問題を入力することで、解き方や思考手順をAIが分析</p>
+                    <a href="https://opal.google/?flow=drive:/13t_ORPj_ZzrhvE7vH8H7QLfy8DTpuVup&shared&mode=app" target="_blank" 
+                    style="display: inline-block; padding: 15px 30px; background-color: #4285f4; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+                        ツールを起動する
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="chapter-select-section" class="content-section hidden">
+            <button class="back-btn" onclick="showPage('home')">← モード選択に戻る</button>
+            <h2 id="mode-title" class="section-title">章を選択</h2>
+            <div id="chapter-list" class="chapter-list"></div>
+        </section>
+
+        <section id="category-select-section" class="content-section hidden">
+            <button class="back-btn" onclick="showSection(currentMode)">← 章選択へ戻る</button>
+            <h2 id="chapter-title" class="section-title">分野を選択</h2>
+            <div id="category-grid" class="category-grid"></div>
+        </section>
+
+        <section id="learning-section" class="content-section hidden">
+            <div id="learning-content" class="glass-card"></div>
+        </section>
+
+        <section id="exam-section" class="content-section hidden">
+            <button class="back-btn" onclick="showPage('home')">← 戻る</button>
+            <h2 class="section-title">共通テスト対策</h2>
+            <div class="glass-card">
+                <h3>DNCLプログラムのトレース</h3>
+                <p>以下の図解を参考に、変数の変化を追いましょう。</p>
+                
+            </div>
+        </section>
+
+        <section id="learning-section" class="content-section hidden">
+            <div id="learning-content" class="glass-card"></div>
+        </section>
+
+        <section id="result-section" class="content-section hidden">
+        <div class="glass-card">
+            <h2 class="section-title">学習の結果</h2>
+            <div id="result-summary" style="text-align:center; font-size:1.5rem; margin-bottom:20px; font-weight:bold;"></div>
+            <div id="result-list">
+            </div>
+        <button class="nav-btn" onclick="showPage('home')" style="width:100%; margin-top:20px;">トップページに戻る</button>
+        </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

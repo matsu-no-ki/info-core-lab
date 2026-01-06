@@ -1,0 +1,54 @@
+:root {
+    --bg: #f0f5fa;
+    --accent: #0070f3;
+    --accent-light: #e0edff;
+    --white: #ffffff;
+    --text: #2c3e50;
+    --grad: linear-gradient(135deg, #0070f3 0%, #00a3ff 100%);
+}
+
+body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); }
+
+/* ヘッダー */
+header { display: flex; justify-content: space-between; padding: 1rem 5%; background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.logo { font-size: 1.5rem; font-weight: 900; color: var(--accent); cursor: pointer; }
+.nav-btn { background: var(--accent-light); border: none; padding: 0.6rem 1.2rem; border-radius: 20px; color: var(--accent); font-weight: bold; cursor: pointer; margin-left: 10px; transition: 0.3s; }
+.nav-btn:hover { background: var(--accent); color: white; }
+
+/* トップページの大きなボタン */
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 2rem; }
+.menu-card {
+    background: white; border-radius: 24px; padding: 2rem; display: flex; align-items: center; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid transparent;
+}
+.menu-card:hover { transform: scale(1.05); border-color: var(--accent); box-shadow: 0 20px 40px rgba(0,112,243,0.1); }
+.card-visual { font-size: 4rem; margin-right: 1.5rem; }
+.menu-card h3 { margin: 0; font-size: 1.5rem; color: var(--accent); }
+
+/* 章選択ボタン（リスト形式） */
+.chapter-list { display: flex; flex-direction: column; gap: 15px; }
+.chapter-card {
+    display: flex;         /* 横並びにする */
+    align-items: center;   /* 上下中央揃え */
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    background: white; padding: 1.2rem 2rem; border-radius: 16px; display: flex; align-items: center;
+    cursor: pointer; transition: 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+.chapter-card:hover { background: var(--accent); color: white; transform: translateX(10px); }
+.chap-num { flex-shrink: 0;        /* 数字の円が潰れないように固定 */font-size: 1.5rem; font-weight: 900; opacity: 0.3; margin-right: 20px; width: 40px; }
+.chap-text { flex-grow: 1;          /* テキスト部分を広げる */
+             font-size: 1.1rem;
+             white-space: nowrap;   /* 勝手に改行させない */font-size: 1.1rem; font-weight: 600; }
+
+/* 共通UI */
+.content-section { max-width: 900px; margin: 3rem auto; padding: 0 1.5rem; animation: fadeIn 0.4s; }
+.glass-card { background: white; padding: 2.5rem; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); }
+.back-btn { background: none; border: none; color: var(--accent); font-weight: bold; cursor: pointer; margin-bottom: 2rem; }
+
+.visual-explanation { background: #f8fafc; border-left: 4px solid var(--accent); padding: 1rem; margin-top: 1.5rem; font-size: 0.95rem; }
+
+.hidden { display: none; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
